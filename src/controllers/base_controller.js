@@ -4,7 +4,7 @@ class BaseController {
     constructor(model) {
       this.model = model;
     }
-  
+
     static async getAll(req, res) {
         try {
             const items = await this.model.find();
@@ -18,7 +18,7 @@ class BaseController {
         try {
             const item = await this.model.findById(req.params.id);
             if (!item) {
-            return ResponseHelper.error(res, 'Item not found', 404);
+            return ResponseHelper.error(res, 'Item not found', 400); //karena 404 resoucenya nya (Data) not found, beda
             }
             return ResponseHelper.success(res, item);
         } catch (error) {

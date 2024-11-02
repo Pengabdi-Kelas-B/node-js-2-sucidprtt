@@ -1,3 +1,5 @@
+// konsistenkan jawaban/respon 
+
 class ResponseHelper {
     static success(res, data, message = 'Success', code = 200) {
         return res.status(code).json({
@@ -5,7 +7,7 @@ class ResponseHelper {
             message,
             data
         });
-    }
+    } 
   
     static error(res, message = 'Internal Server Error', code = 500) {
         return res.status(code).json({

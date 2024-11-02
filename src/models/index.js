@@ -1,3 +1,6 @@
+//inisiasi models di suatu tempat
+
+//disini import schema
 const mongoose = require('mongoose')
 const AuthorSchema = require("./author_model");
 const BookSchema = require("./book_model");
@@ -7,6 +10,7 @@ const BorrowingSchema = require("./borrowing_model");
 const CategorySchema = require("./category_model");
 const StockLogSchema = require("./stocklog_model");
 
+// dan disini daftarkan sebagai model
 module.exports = {
     Book: mongoose.model('Book', BookSchema),
     Author: mongoose.model('Author', AuthorSchema),
