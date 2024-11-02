@@ -8,6 +8,8 @@ const {
   BookStock 
 } = require('./models');
 
+require('dotenv').config()
+
 const seedData = {
   categories: [
     {
@@ -164,7 +166,7 @@ async function seedDatabase() {
 }
 
 // Script execution
-mongoose.connect('mongodb://localhost:27017/library_db')
+mongoose.connect(process.env.MONGOD_URI)
   .then(async () => {
     console.log('Connected to MongoDB');
     await seedDatabase();
