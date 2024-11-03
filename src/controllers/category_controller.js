@@ -3,7 +3,7 @@ const ResponseHelper = require('../utils/response');
 
 class CategoryController {
 
-    static async getAll(req, res) {
+    static async getAllCategory(req, res) {
       try {
         const items = await DB.Category.find();
         return ResponseHelper.success(res, items, 'sukses mengambil data kategori');
@@ -12,7 +12,7 @@ class CategoryController {
       }
     }
 
-    static async getById(req, res) {
+    static async getByIdCategory(req, res) {
       try {
         const items = await DB.Category.findById(req.params.id);
         return ResponseHelper.success(res, items);
@@ -21,7 +21,7 @@ class CategoryController {
       }
     }
 
-    static async create(req, res) {
+    static async createCategory(req, res) {
       try {
         const items = await DB.Category.create(req.body);
         return ResponseHelper.success(res, items);
@@ -30,7 +30,7 @@ class CategoryController {
       }
     }
 
-    static async update(req, res) {
+    static async updateCategory(req, res) {
       try {
         if(!req.params.id){
           return ResponseHelper.error(res, 'ID not provided!', 400)
@@ -42,7 +42,7 @@ class CategoryController {
       }
     }
 
-    static async delete(req, res) {
+    static async deleteCategory(req, res) {
       try {
         if(!req.params.id){
           return ResponseHelper.error(res, 'ID not provided!', 400)

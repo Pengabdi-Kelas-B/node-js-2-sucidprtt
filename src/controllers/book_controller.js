@@ -3,7 +3,7 @@ const ResponseHelper = require('../utils/response');
 
 class BookController {
 
-    static async getAll(req, res) {
+    static async getAllBook(req, res) {
       try {
         const items = await DB.Book.find().populate('categoryId', 'name description').populate('authorId', 'name bio');
         return ResponseHelper.success(res, items);
@@ -12,7 +12,7 @@ class BookController {
       }
     }
 
-    static async getById(req, res) {
+    static async getByIdBook(req, res) {
       try {
         const items = await DB.Book.findById(req.params.id).populate('categoryId', 'name description').populate('authorId', 'name bio');
         return ResponseHelper.success(res, items);
@@ -21,7 +21,7 @@ class BookController {
       }
     }
 
-    static async create(req, res) {
+    static async createBook(req, res) {
       try {
         const items = await DB.Book.create(req.body);
         return ResponseHelper.success(res, items);
@@ -30,7 +30,7 @@ class BookController {
       }
     }
 
-    static async update(req, res) {
+    static async updateBook(req, res) {
       try {
         if(!req.params.id){
           return ResponseHelper.error(res, 'ID not provided!', 400)
@@ -42,7 +42,7 @@ class BookController {
       }
     }
 
-    static async delete(req, res) {
+    static async deleteBook(req, res) {
       try {
         if(!req.params.id){
           return ResponseHelper.error(res, 'ID not provided!', 400)
@@ -54,7 +54,7 @@ class BookController {
       }
     }
 
-    static async uploadImage(req, res) {
+    static async uploadImageBook(req, res) {
       try {
 
         if(!req.body.id){
